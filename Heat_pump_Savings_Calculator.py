@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from io import BytesIO
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import math
 
 # --------------------------
@@ -205,17 +205,17 @@ with tab3:
     st.subheader("📌 Detailed Results")
     st.table(results_df)
 
-    st.subheader("Operating Cost Comparison 💰 (Rs/year)")
-    fig2, ax2 = plt.subplots()
-    ax2.bar(["Fuel Boiler", "Heat Pump"], [boiler_operating_cost, total_hp_cost])
-    ax2.set_ylabel("Rs/year")
-    st.pyplot(fig2)
+    ####st.subheader("Operating Cost Comparison 💰 (Rs/year)")
+    #fig2, ax2 = plt.subplots()
+    #ax2.bar(["Fuel Boiler", "Heat Pump"], [boiler_operating_cost, total_hp_cost])
+    #ax2.set_ylabel("Rs/year")
+    #st.pyplot(fig2)
 
-    st.subheader("CO₂ Comparison (kgs/year)")
-    fig3, ax3 = plt.subplots()
-    ax3.bar(["Fuel Boiler", "Heat Pump"], [co2_fuel_year, total_co2_hp])
-    ax3.set_ylabel("kgs/year")
-    st.pyplot(fig3)
+    #st.subheader("CO₂ Comparison (kgs/year)")
+    #fig3, ax3 = plt.subplots()
+    #ax3.bar(["Fuel Boiler", "Heat Pump"], [co2_fuel_year, total_co2_hp])
+    #ax3.set_ylabel("kgs/year")
+    #st.pyplot(fig3)####
 
     st.subheader("Download Output")
     inputs_df = pd.DataFrame({
@@ -234,3 +234,4 @@ with tab3:
     csv = results_df.to_csv(index=False).encode()
     st.download_button("📄 Download CSV", csv, "heatpump_summary.csv")
     st.download_button("📘 Download Excel", excel_buf, "heatpump_summary.xlsx")
+
