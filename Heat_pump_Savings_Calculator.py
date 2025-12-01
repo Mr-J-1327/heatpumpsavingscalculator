@@ -9,12 +9,12 @@ import math
 # --------------------------
 # Helper function: Export to Excel bytes
 # --------------------------
-def to_excel_bytes(dfs: dict):
-    output = BytesIO()
-    with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
-        for sheet_name, df in dfs.items():
-            df.to_excel(writer, sheet_name=sheet_name, index=False)
-    return output.getvalue()
+#def to_excel_bytes(dfs: dict):
+    #output = BytesIO()
+    #with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+        #for sheet_name, df in dfs.items():
+            #df.to_excel(writer, sheet_name=sheet_name, index=False)
+    #return output.getvalue()
 
 # --------------------------
 # App config
@@ -226,12 +226,13 @@ with tab3:
         "Parameter": ["Calorific Value (kcal/kg)", "Boiler Efficiency (%)", "Electricity Cost (Rs/kWh)", "Heat Pump COP"],
         "Value": [cv, eff, elec_cost, cop]
     })
-    excel_buf = to_excel_bytes({
-        "Inputs": inputs_df,
-        "Assumptions": assumptions_df,
-        "Results": results_df
-    })
+    #excel_buf = to_excel_bytes({
+        #"Inputs": inputs_df,
+        #"Assumptions": assumptions_df,
+        #"Results": results_df
+    #})
     csv = results_df.to_csv(index=False).encode()
     st.download_button("📄 Download CSV", csv, "heatpump_summary.csv")
-    st.download_button("📘 Download Excel", excel_buf, "heatpump_summary.xlsx")
+    #st.download_button("📘 Download Excel", excel_buf, "heatpump_summary.xlsx")
+
 
